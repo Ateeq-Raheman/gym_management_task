@@ -1,0 +1,191 @@
+<!-- /www/your_app/templates/gym_workout_plan.html -->
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<!-- Full-page background image -->
+<style>
+    body {
+        background-image: url('https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?q=80&w=1373&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+    .content-section {
+        background-color: rgba(255, 255, 255, 0.85);
+        /* Add a white transparent overlay */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h3,
+    h1,
+    p {
+        color: #333;
+        /* Darker text to make it readable */
+    }
+
+    .jumbotron {
+        background: rgba(0, 0, 0, 0.6);
+        /* Dark overlay on jumbotron */
+    }
+
+    .jumbotron h1,
+    .jumbotron p {
+        color: #fff;
+    }
+</style>
+
+<div class="container">
+    <!-- Workout Plan Header with Background Image -->
+    <div class="row justify-content-center">
+        <div class="col-lg-10 text-center">
+            <div class="jumbotron jumbotron-fluid text-white text-center" style="padding: 50px 0;">
+                <div class="container">
+                    <h1 class="display-4 text-uppercase font-weight-bold">{{ doc.plan_name }}</h1>
+                    <p class="lead">Achieve your fitness goals with this custom workout plan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Display Workout Plan Details -->
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow-sm border-0 content-section">
+                <img src="https://images.unsplash.com/photo-1577221084712-45b0445d2b00?q=80&w=1396&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Gym Details Image"
+                    style="height: 250px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h3 class="card-title text-secondary">Workout Plan Details</h3>
+                    <p><strong>Level:</strong> {{ doc.level }}</p>
+                    <!-- <p><strong>Published:</strong> {{ "Yes" if doc.published else "No" }}</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Display Child Table: Exercises -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-10">
+            <div class="content-section">
+                <h3 class="text-center text-secondary mb-4">Follow This Workout Plan</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped text-center">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th>No</th>
+                                <th>Exercise Name</th>
+                                <th>Reps</th>
+                                <th>Sets</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in doc.table_eat %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ row.exercise_name }}</td>
+                                <td>{{ row.reps }}</td>
+                                <td>{{ row.sets }}</td>
+                                <td>{{ row.duration }}</td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="5" class="text-center">No exercises added yet.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Motivational Section -->
+<div class="row justify-content-center mt-5">
+    <div class="col-lg-10">
+        <div class="card bg-white text-dark content-section">
+            <!-- Changed background to white and text color to dark -->
+            <img src="https://images.unsplash.com/photo-1437935690510-49ce2c715aee?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="card-img" alt="Motivational Image" style="opacity: 0.6; height: 300px; object-fit: cover;">
+            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center">
+                <h4 class="card-title font-weight-bold text-uppercase">Stay Strong. Stay Committed.</h4>
+                <p class="card-text">“The only bad workout is the one that didn’t happen.”</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add this CSS in the <style> tag inside your page -->
+<style>
+    .card {
+        background-color: white;
+        /* Sets the entire card background to white */
+    }
+
+    .card-title,
+    .card-text {
+        color: rgb(255, 255, 255);
+        /* Ensures text is dark */
+    }
+
+    .card-img {
+        opacity: 0.6;
+        /* Keeps the image slightly transparent */
+    }
+
+    .card-img-overlay {
+        background-color: transparent;
+        /* Ensures no white overlay covers the image */
+    }
+</style>
+
+<!-- Add this CSS in the <style> tag inside your page -->
+<style>
+    .bottom-right-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        /* Ensure it stays on top of other content */
+    }
+</style>
+
+<div class="bottom-left-button" class="top-Right-button">
+    <a href="/GymWorkoutPlan/" class="btn btn-primary btn-lg" role="button">Back</a>
+    <a href="/app/gym-workout-plan/{{ docname }}" class="btn btn-primary btn-lg" role="button">Edit a Plan</a>
+</div>
+
+<div class="bottom-right-button" >
+    <a href="/GymWorkoutPlan/new/new" class="btn btn-primary btn-lg" role="button">Create a New Plan</a>
+</div>
+
+
+<!-- Add this CSS in the <style> tag inside your page -->
+<style>
+    .bottom-left-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 1000;
+        /* Ensure it stays on top of other content */
+    }
+</style>
+<style>
+    .top-Right-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        /* Ensure it stays on top of other content */
+    }
+</style>
+
+
+
+
+
+{% endblock %}
+

@@ -1,0 +1,159 @@
+{
+ "actions": [],
+ "allow_guest_to_view": 1,
+ "allow_rename": 1,
+ "autoname": "field:full_name",
+ "creation": "2024-09-09 15:33:15.009967",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "full_name",
+  "contact",
+  "email",
+  "age",
+  "weight",
+  "fitness_goals",
+  "active_membership",
+  "amended_from",
+  "attach_image"
+ ],
+ "fields": [
+  {
+   "fieldname": "contact",
+   "fieldtype": "Data",
+   "label": "Contact",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "label": "Age"
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Int",
+   "label": "Weight"
+  },
+  {
+   "fieldname": "fitness_goals",
+   "fieldtype": "Select",
+   "label": "Fitness Goals",
+   "options": "Flexibility\nLosing weight\nCardiovascular endurance\nBe healthier\nWeight gain\nImprove your mobility\nFat Loss\nWeightlifting\nTo build muscle\nGet stronger"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gym Member",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "active_membership",
+   "fieldtype": "Select",
+   "label": "Active Membership",
+   "options": "Active\nInactive\nExpired",
+   "read_only": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "attach_image",
+   "fieldtype": "Attach Image",
+   "label": "Attach Image"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "GYM MANAGEMENT",
+   "link_doctype": "Gym Membership",
+   "link_fieldname": "member"
+  },
+  {
+   "group": "GYM MANAGEMENT",
+   "link_doctype": "Gym Locker Booking",
+   "link_fieldname": "gym_member"
+  },
+  {
+   "group": "GYM MANAGEMENT",
+   "link_doctype": "Gym Class Booking",
+   "link_fieldname": "gym_member"
+  },
+  {
+   "group": "GYM MANAGEMENT",
+   "link_doctype": "Payment Entry",
+   "link_fieldname": "member"
+  }
+ ],
+ "modified": "2024-09-18 18:05:29.248958",
+ "modified_by": "Administrator",
+ "module": "Gym Management Task",
+ "name": "Gym Member",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Gym Admin",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Gym Member",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Gym Trainer",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

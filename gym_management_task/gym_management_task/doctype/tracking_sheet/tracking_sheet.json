@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-11 18:22:53.788650",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "calorie_intake",
+  "weight_loss",
+  "weight_gain",
+  "body_mass"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  },
+  {
+   "fieldname": "calorie_intake",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Calorie Intake"
+  },
+  {
+   "fieldname": "weight_loss",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Weight Loss"
+  },
+  {
+   "fieldname": "weight_gain",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Weight Gain"
+  },
+  {
+   "fieldname": "body_mass",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Body Mass"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-18 12:48:45.347455",
+ "modified_by": "Administrator",
+ "module": "Gym Management Task",
+ "name": "Tracking Sheet",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

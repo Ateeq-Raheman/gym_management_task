@@ -1,0 +1,140 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{gym_member}-{locker_number}-{start_date}",
+ "creation": "2024-09-09 15:34:15.901287",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "gym_member",
+  "locker_number",
+  "start_date",
+  "end_date",
+  "total_no_of_days",
+  "total_amount",
+  "amended_from",
+  "status",
+  "email"
+ ],
+ "fields": [
+  {
+   "fieldname": "gym_member",
+   "fieldtype": "Link",
+   "label": "Gym Member",
+   "options": "Gym Member"
+  },
+  {
+   "fieldname": "locker_number",
+   "fieldtype": "Link",
+   "label": "Locker Number",
+   "link_filters": "[[\"Locker Available\",\"status\",\"=\",\"Available\"]]",
+   "options": "Locker Available"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gym Locker Booking",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "gym_member.email",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "default": "Unpaid",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "link_filters": "[[\"Locker Available\",\"status\",\"=\",\"Available\"]]",
+   "options": "Paid\nUnpaid"
+  },
+  {
+   "fieldname": "total_no_of_days",
+   "fieldtype": "Int",
+   "label": "Total No Of Day's"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Int",
+   "label": "Total Amount"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "GYM MANAGEMENT",
+   "link_doctype": "Payment Entry",
+   "link_fieldname": "member"
+  },
+  {
+   "group": "GYM MANAGEMENT",
+   "link_doctype": "Gym Class Booking",
+   "link_fieldname": "gym_member"
+  }
+ ],
+ "modified": "2024-09-30 10:41:11.713616",
+ "modified_by": "Administrator",
+ "module": "Gym Management Task",
+ "name": "Gym Locker Booking",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Gym Admin",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Gym Member",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

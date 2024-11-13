@@ -1,0 +1,108 @@
+<div>
+	<!-- <a href="{{ doc.route }}">{{ doc.title or doc.name }}</a> -->
+	 <p></p>
+</div>
+<!-- this is a sample default list template -->
+
+
+<!-- Full-page background image -->
+<style>
+	body {
+		background-image: url('https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?q=80&w=1373&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+	}
+
+	.content-section {
+		background-color: rgba(255, 255, 255, 0.85);
+		padding: 30px;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	h1,
+	h3,
+	p {
+		color: #333;
+	}
+
+	.jumbotron {
+		background: rgba(0, 0, 0, 0.6);
+	}
+
+	.jumbotron h1,
+	.jumbotron p {
+		color: #fff;
+	}
+
+	.plan-card {
+		margin-bottom: 30px;
+	}
+
+	.plan-card h5 {
+		color: #555;
+	}
+
+	.plan-card p {
+		color: #777;
+	}
+
+	.btn-view-plan {
+		background-color: #007bff;
+		color: #fff;
+	}
+</style>
+
+	<div class="row justify-content-center">
+		<div class="col-lg-6">
+			<div class="card shadow-sm border-0 content-section">
+				<!-- <img src="https://images.unsplash.com/photo-1577221084712-45b0445d2b00?q=80&w=1396&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+					class="card-img-top" alt="Gym Details Image" style="height: 250px; object-fit: cover;"> -->
+				<div class="card-body text-center">
+					<h3 class="card-title text-secondary" >{{ doc.name }}</h3>
+					<p><strong>Level:</strong> {{ doc.level }}</p>
+					<a href="{{ doc.name }}"> Click Here To View The Plan {{ doc.name }}</a>
+					<!-- <p><strong>Published:</strong> {{ "Yes" if doc.published else "No" }}</p> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Display List of Workout Plans -->
+	<!-- <div class="row">
+		{% for plan in plans_list %}
+		<div class="col-lg-4">
+			<div class="card plan-card shadow-sm border-0 content-section">
+				<div class="card-body text-center">
+					<a href="{{ plan.route }}"
+						class="card-title text-uppercase font-weight-bold">{{ plan.name }}</a>
+				</div>
+			</div>
+		</div>
+		{% else %}
+		<div class="col-lg-12 text-center">
+			<p></p>
+		</div>
+		{% endfor %}
+	</div> -->
+</div>
+<!-- Button to redirect to a new page, positioned at the bottom-right corner -->
+<div class="bottom-right-button">
+	<a href="/GymWorkoutPlan/new/new" class="btn btn-primary btn-lg" role="button">Create A New Plan</a>
+</div>
+
+<!-- Add this CSS in the <style> tag inside your page -->
+<style>
+	.bottom-right-button {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		z-index: 1000;
+		/* Ensure it stays on top of other content */
+	}
+</style>
+
+
+

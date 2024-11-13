@@ -68,7 +68,7 @@ app_license = "mit"
 # ----------
 
 # automatically create page for each record of this doctype
-# website_generators = ["Web Page"]
+website_generators = ["Gym Workout Plan"]
 
 # Jinja
 # ----------
@@ -138,33 +138,35 @@ app_license = "mit"
 # Hook on document methods and events
 
 # doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
+#     "Gym Workout Plan": {
+#         "before_save": "gym_management_task.gym_management_task.doctype.gym_workout_plan.gym_workout_plan.before_save",
+#     }
 # }
+doc_events = {
+    "Gym Class Booking": {
+        "validate": "gym_management_task.gym_management_task.doctype.gym_class_booking.gym_class_booking.calculate_total_amount"
+    }
+}
+# doc_events = {
+#     "Gym Locker Booking": {
+#         # "validate": "gym_management_task.gym_management_task.doctype.gym_locker_booking.gym_locker_booking.validate",
+#         # "on_submit": "gym_management_task.gym_management_task.doctype.gym_locker_booking.gym_locker_booking.on_submit",
+#         # "on_cancel": "gym_management_task.gym_management_task.doctype.gym_locker_booking.gym_locker_booking.on_cancel"
+#     },
+#     "Payment Entry": {
+#         # "validate": "gym_management_task.gym_management_task.doctype.payment_entry.payment_entry.validate"
+#     }
+# }
+
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"gym_management_task.tasks.all"
-# 	],
-# 	"daily": [
-# 		"gym_management_task.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"gym_management_task.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"gym_management_task.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"gym_management_task.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	"weekly": [
+		"gym_management_task.gym_management_task.doctype.gym_class_booking.gym_class_booking.send_weekly_summary"
+	],
+}
 
 # Testing
 # -------

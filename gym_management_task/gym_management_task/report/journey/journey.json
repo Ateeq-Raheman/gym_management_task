@@ -1,0 +1,44 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2024-09-17 10:08:48.108761",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "default": "Zaid",
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "mandatory": 1,
+   "options": "Gym Member",
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "",
+ "letterhead": null,
+ "modified": "2024-09-17 10:27:57.489884",
+ "modified_by": "Administrator",
+ "module": "Gym Management Task",
+ "name": "journey",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Process Sheet",
+ "report_name": "journey",
+ "report_script": "",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Gym Admin"
+  },
+  {
+   "role": "Gym Trainer"
+  }
+ ]
+}
